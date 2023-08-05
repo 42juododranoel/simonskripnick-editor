@@ -5,19 +5,6 @@ vars:
   PYENV_NAME: simonskripnick_editor
 
 tasks:
-  # Infrastructure Section
-
-  install:taskfile:
-    cmds:
-      - sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
-
-  install:pyenv:
-    cmds:
-      - curl https://pyenv.run | bash
-      - pyenv install --skip-existing {{ .PYTHON_VERSION }}
-      - pyenv virtualenv {{ .PYTHON_VERSION }} {{ .PYENV_NAME }} || true
-
-
   # Development Section
 
   install:
@@ -33,7 +20,9 @@ tasks:
 
   deploy:build:
     cmds:
-      - task: install:pyenv
+      - curl https://pyenv.run | bash
+      - .bin/pyenv install --skip-existing {{ .PYTHON_VERSION }}
+      - .bin/pyenv virtualenv {{ .PYTHON_VERSION }} {{ .PYENV_NAME }} || true
       - task: install
       - task: test
 
