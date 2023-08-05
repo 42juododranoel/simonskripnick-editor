@@ -17,6 +17,10 @@ tasks:
       - pyenv install --skip-existing {{ .PYTHON_VERSION }}
       - pyenv virtualenv {{ .PYTHON_VERSION }} {{ .PYENV_NAME }} || true
 
+  install:poetry:
+    cmds:
+      - curl -sSL https://install.python-poetry.org | python3 -
+
 
   # Development Section
 
@@ -33,7 +37,7 @@ tasks:
 
   deploy:build:
     cmds:
-      - task: install
+      - poetry install
       - task: test
 
   deploy:start:
