@@ -1,12 +1,30 @@
 version: '3'
 
+vars:
+  PYTHON_VERSION: 3.11.0
+  PYENV_NAME: simonskripnick_editor
+
 tasks:
+  # Development Section
+
+  install:
+    cmds:
+      - pyenv install --skip-existing {{ .PYTHON_VERSION }}
+      - pyenv virtualenv {{ .PYTHON_VERSION }} {{ .PYENV_NAME }} || true
+      - PYENV_VERSION={{ .PYENV_NAME }} poetry install
+
+  test:
+    cmds:
+      - pytest -s
+
+
+  # Deployment Section
+
   deploy:build:
     cmds:
-      - pip install -r requirements.txt
-    silent: true
+      - task: install
+      - task: test
 
   deploy:start:
     cmds:
       - uvicorn main:app --host 0.0.0.0 --port $PORT
-    silent: true

@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "editor"
+version = "1.0.0"
+description = ""
+authors = []
+maintainers = []
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.101.0"
+pytest = "^7.4.0"
