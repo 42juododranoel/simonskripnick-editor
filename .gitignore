@@ -73,7 +73,6 @@ target/
 .ipynb_checkpoints
 
 # pyenv
-.python-version
 pyvenv.cfg
 
 # celery beat schedule file
@@ -106,3 +105,6 @@ venv.bak/
 
 # Mac OS
 .DS_Store
+
+# Additional
+.ruff_cache
