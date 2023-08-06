@@ -28,6 +28,7 @@ tasks:
     cmds:
       - poetry install
       - python3 -c 'import nltk; nltk.download("punkt")'
+      - ls -lah /opt/render/nltk_data
 
   test:
     cmds:
