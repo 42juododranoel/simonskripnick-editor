@@ -2,7 +2,7 @@ import attrs
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from editor.apps.analyzer.processors import ContentAnalyzer
+from editor.apps.analyzer.processors import TextAnalyzer, TextCreator
 
 router = APIRouter()
 
@@ -15,9 +15,12 @@ class AnalyzeTextPayload(BaseModel):
 
 @router.post("/analyze-content")
 async def analyze_content(payload: AnalyzeTextPayload) -> dict:
-    """Return test message."""
+    """Return analyze content ant return it as nested data structure."""
 
-    content_analyzer = ContentAnalyzer(content=payload.content)
-    tree = content_analyzer()
+    text_creator = TextCreator(content=payload.content)
+    text = text_creator()
 
-    return attrs.asdict(tree)
+    text_analyzer = TextAnalyzer(text=text)
+    text_analyzer()
+
+    return attrs.asdict(text)

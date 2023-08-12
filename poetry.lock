@@ -431,6 +431,35 @@ files = [
 ]
 
 [[package]]
+name = "kmeans1d"
+version = "0.3.1"
+description = "A Python package for optimal 1D k-means clustering"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "kmeans1d-0.3.1-cp310-cp310-macosx_10_14_x86_64.whl", hash = "sha256:406864212b3ae3ba3ebe4e10ab1d40ff12d95148da08148df8bf1a04c9254655"},
+    {file = "kmeans1d-0.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:62deac12e3dce7ea869f1b8742e43845d10226eac878cc00dd5bc88cc5dc3ff2"},
+    {file = "kmeans1d-0.3.1-cp310-cp310-win_amd64.whl", hash = "sha256:22b052d7ee2eb6fc24d8391e3b1dcfb55335a4ed746a75cc17de7854cebf4da0"},
+    {file = "kmeans1d-0.3.1-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:bfb1b94fdb930868536e9cd8c5df44aca3705b3f80d8c963cef44026c8edec8f"},
+    {file = "kmeans1d-0.3.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:cc670fa2611a67bb8ab31734043423cb8f83dd8fb33e5b43f44070894fc207cf"},
+    {file = "kmeans1d-0.3.1-cp311-cp311-win_amd64.whl", hash = "sha256:034b82dd7ad91216a3551dffa53b11aa6870dda47641fc89073c56874a7b4015"},
+    {file = "kmeans1d-0.3.1-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:e80bf6107ee86a3b33f6eb0e89b197f03b75d0a2f1a366cd00b6eb94801d76d1"},
+    {file = "kmeans1d-0.3.1-cp36-cp36m-manylinux2014_x86_64.whl", hash = "sha256:7362144e0b7cbe92d116c88c4f25e85a872d9ca317bb5b22c8422f8131914599"},
+    {file = "kmeans1d-0.3.1-cp36-cp36m-win_amd64.whl", hash = "sha256:09c6c97c3b63b5dc074c2b0a6fbc8f6e2dac252fd6bd4a7500b73fdfab5d5ef3"},
+    {file = "kmeans1d-0.3.1-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:80f476241037e7ff33767848a28ca8c587596828fee4031c58e1d2608ad8e357"},
+    {file = "kmeans1d-0.3.1-cp37-cp37m-manylinux2014_x86_64.whl", hash = "sha256:1cbb7043c9e1282e5136620840d2e92dadae0747e776e96efd8460475ae289c2"},
+    {file = "kmeans1d-0.3.1-cp37-cp37m-win_amd64.whl", hash = "sha256:4953c04dfe811bc04d0898653d42dae404e42b1ad6dd70a63647bde96796a88e"},
+    {file = "kmeans1d-0.3.1-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:e765af47931aa197cf7734492ac1222f7c02cbf9e1f4824ae105f8b1ac733490"},
+    {file = "kmeans1d-0.3.1-cp38-cp38-manylinux2014_x86_64.whl", hash = "sha256:5015efd3d6381e61b57da033d80ae64b8ea1e06a92efbc8afbcd473ccebc80e6"},
+    {file = "kmeans1d-0.3.1-cp38-cp38-win_amd64.whl", hash = "sha256:b62e6d5648ba1eaf9ed012528fdbd179f67cfc70fb42b0d9cae19b2a36fb4ef9"},
+    {file = "kmeans1d-0.3.1-cp39-cp39-macosx_10_14_x86_64.whl", hash = "sha256:06eb99f10bbd6e7056a829ed06678aa60e911c023f6c088c66623bdd42c1f389"},
+    {file = "kmeans1d-0.3.1-cp39-cp39-manylinux2014_x86_64.whl", hash = "sha256:da880390b1419f8f2c8d0c2d6cd1794a0613006bf9b347ca677394406b832687"},
+    {file = "kmeans1d-0.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:1b1f00bb9dc59625b70967ec3ddd7472039968adae2b36a973a60d91257d3c4e"},
+    {file = "kmeans1d-0.3.1.tar.gz", hash = "sha256:dbe3604460968e3d31b743ac8f6167a48cdf1b8717c86e7fe2a93e117fdf1836"},
+]
+
+[[package]]
 name = "matplotlib-inline"
 version = "0.1.6"
 description = "Inline Matplotlib backend for Jupyter"
@@ -1097,4 +1126,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "96dd405be647fe4e3415f3e0447d27ebf18c8342ecf078a1e0224dbda4805997"
+content-hash = "fe194ebf413eaaca38fbe7204132db5bff492eb04c4151782a2a95e3d630791f"

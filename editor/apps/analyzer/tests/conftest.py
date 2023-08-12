@@ -3,11 +3,11 @@ import pytest
 from editor.apps.analyzer.entities import (
     Context,
     Paragraph,
-    ParagraphCollection,
+    Paragraphs,
     Sentence,
-    SentenceCollection,
+    Sentences,
+    Spans,
     Text,
-    TokenCollection,
 )
 
 
@@ -18,22 +18,24 @@ def content() -> str:
 
 @pytest.fixture
 def text(content: str) -> Text:
-    return Text(content=content, paragraphs=ParagraphCollection(), context=Context())
+    return Text(
+        content=content,
+        paragraphs=Paragraphs(),
+        context=Context(sentence_lengths=[1, 2, 3]),
+    )
 
 
 @pytest.fixture
 def paragraph() -> Paragraph:
     return Paragraph(
-        index=0,
         content="What are you doing? Move it!",
-        sentences=SentenceCollection(),
+        sentences=Sentences(),
     )
 
 
 @pytest.fixture
 def sentence() -> Sentence:
     return Sentence(
-        index=0,
         content="What are you doing?",
-        tokens=TokenCollection(),
+        spans=Spans(),
     )

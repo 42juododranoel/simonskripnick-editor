@@ -34,7 +34,7 @@ tasks:
 
   test:
     cmds:
-      - pytest -s -vv
+      - pytest -s -vv {{.CLI_ARGS}}
   
   format:
     cmds:
@@ -43,7 +43,12 @@ tasks:
 
   lint:
     cmds:
-      - ruff check .
+      - ruff check . --fix
+
+  run:
+    cmds:
+      - uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    dir: ./editor
 
 
   # Deployment Section
