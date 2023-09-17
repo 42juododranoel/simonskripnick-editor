@@ -2,7 +2,7 @@ from editor.apps.analyzer.entities import SentenceLength, Spans, SpanSubcategory
 from editor.base.processors import BaseProcessor
 
 
-class SpansAnalyzer(BaseProcessor):
+class SpansTransformer(BaseProcessor):
     """Analyze a token collection."""
 
     def __init__(

@@ -11,13 +11,12 @@ from editor.apps.analyzer.entities import (
 from editor.base.processors import BaseProcessor
 
 
-class SentencesCreator(BaseProcessor):
-    """Create a sentence collection for a given paragraph."""
+class SentencesExtractor(BaseProcessor):
+    """Extract a sentence collection from a given paragraph`s content."""
 
     def __init__(self, paragraph: Paragraph, context: Context | None = None) -> None:
         self.paragraph = paragraph
         self.context = context
-
         self.sentence_count = 0
 
     def run(self) -> dict:
@@ -28,10 +27,10 @@ class SentencesCreator(BaseProcessor):
         for start_index, end_index in sentences:
             if start_index != previous_end_index:
                 whitespace = self.paragraph.content[previous_end_index:start_index]
-                self.create_whitespace(content=whitespace)
+                self.create_whitespace_span(content=whitespace)
 
             sentence = self.paragraph.content[start_index:end_index]
-            self.create_sentence(content=sentence)
+            self.create_sentence_span(content=sentence)
             self.sentence_count += 1
 
             previous_end_index = end_index
@@ -39,18 +38,18 @@ class SentencesCreator(BaseProcessor):
         maybe_end_index = len(self.paragraph.content)
         if previous_end_index < maybe_end_index:
             whitespace = self.paragraph.content[previous_end_index:maybe_end_index]
-            self.create_whitespace(content=whitespace)
+            self.create_whitespace_span(content=whitespace)
 
         self.paragraph.sentences.count = self.sentence_count
 
-    def create_whitespace(self, content: str) -> Span:
+    def create_whitespace_span(self, content: str) -> Span:
         token = Span(
             content=content,
             subcategory=SpanSubcategory.WHITESPACE,
         )
         self.paragraph.sentences.collection.append(token)
 
-    def create_sentence(self, content: str) -> Sentence:
+    def create_sentence_span(self, content: str) -> Sentence:
         sentence = Sentence(
             content=content,
             spans=Spans(),

@@ -1,8 +1,8 @@
 from editor.apps.analyzer.entities import SentenceLength, Span, Spans, SpanSubcategory
-from editor.apps.analyzer.processors import SpansAnalyzer
+from editor.apps.analyzer.processors import SpansTransformer
 
 
-def test_spans_analyzer():
+def test_spans_transformer():
     spans = Spans(
         collection=[
             Span(
@@ -40,14 +40,14 @@ def test_spans_analyzer():
         ],
         count=5,
     )
-    spans_analyzer = SpansAnalyzer(
+    spans_transformer = SpansTransformer(
         spans=spans,
         sentence_length=SentenceLength.SHORT,
         sentence_centroid=1,
         repeated_sentence_length_count=2,
     )
 
-    spans_analyzer()
+    spans_transformer()
 
     assert spans == Spans(
         collection=[

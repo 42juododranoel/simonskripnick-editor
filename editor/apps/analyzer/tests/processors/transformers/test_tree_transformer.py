@@ -1,5 +1,6 @@
 from editor.apps.analyzer.entities import (
     Context,
+    HttpDocument,
     Paragraph,
     Paragraphs,
     Sentence,
@@ -8,14 +9,14 @@ from editor.apps.analyzer.entities import (
     Span,
     Spans,
     SpanSubcategory,
-    Text,
+    Tree,
 )
-from editor.apps.analyzer.processors import TextAnalyzer
+from editor.apps.analyzer.processors import TreeTransformer
 
 
-def test_text_analyzer():
-    text = Text(
-        content="What are you doing? Move it!\r\nThe horn calls — we shall answer.",
+def test_tree_transformer(document: HttpDocument):
+    tree = Tree(
+        document=document,
         context=Context(
             paragraph_count=2,
             sentence_count=3,
@@ -95,12 +96,12 @@ def test_text_analyzer():
             ],
         ),
     )
-    text_analyzer = TextAnalyzer(text=text)
+    tree_transformer = TreeTransformer(tree=tree)
 
-    text_analyzer()
+    tree_transformer()
 
-    assert text == Text(
-        content="What are you doing? Move it!\r\nThe horn calls — we shall answer.",
+    assert tree == Tree(
+        document=document,
         context=Context(
             paragraph_count=2,
             sentence_count=3,

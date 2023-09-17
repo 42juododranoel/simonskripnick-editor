@@ -1,5 +1,6 @@
 from editor.apps.analyzer.entities import (
     Context,
+    HttpDocument,
     Paragraph,
     Paragraphs,
     Sentence,
@@ -7,18 +8,18 @@ from editor.apps.analyzer.entities import (
     Span,
     Spans,
     SpanSubcategory,
-    Text,
+    Tree,
 )
-from editor.apps.analyzer.processors import TextCreator
+from editor.apps.analyzer.processors import TreeExtractor
 
 
-def test_text_creator(content: str):
-    text_creator = TextCreator(content=content)
+def test_tree_extractor(document: HttpDocument):
+    tree_extractor = TreeExtractor(document=document)
 
-    text = text_creator()
+    tree = tree_extractor()
 
-    assert text == Text(
-        content="What are you doing? Move it!\r\nThe horn calls — we shall answer.",
+    assert tree == Tree(
+        document=document,
         context=Context(
             paragraph_count=2,
             sentence_count=3,

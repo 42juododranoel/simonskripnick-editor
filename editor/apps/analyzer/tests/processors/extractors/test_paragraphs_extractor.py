@@ -1,13 +1,13 @@
-from editor.apps.analyzer.entities import Paragraph, Paragraphs, Sentences, Text
-from editor.apps.analyzer.processors import ParagraphsCreator
+from editor.apps.analyzer.entities import Paragraph, Paragraphs, Sentences, Tree
+from editor.apps.analyzer.processors import ParagraphsExtractor
 
 
-def test_paragraphs_creator(text: Text):
-    paragraphs_creator = ParagraphsCreator(text=text)
+def test_paragraphs_extractor(tree: Tree):
+    paragraphs_extractor = ParagraphsExtractor(tree=tree)
 
-    paragraphs_creator()
+    paragraphs_extractor()
 
-    assert text.paragraphs == Paragraphs(
+    assert tree.paragraphs == Paragraphs(
         collection=[
             Paragraph(
                 content="What are you doing? Move it!",

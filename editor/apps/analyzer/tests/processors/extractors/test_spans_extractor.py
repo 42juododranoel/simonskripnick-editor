@@ -1,11 +1,11 @@
 from editor.apps.analyzer.entities import Sentence, Span, Spans, SpanSubcategory
-from editor.apps.analyzer.processors import SpansCreator
+from editor.apps.analyzer.processors import SpansExtractor
 
 
-def test_spans_creator(sentence: Sentence):
-    spans_creator = SpansCreator(sentence=sentence)
+def test_spans_extractor(sentence: Sentence):
+    spans_extractor = SpansExtractor(sentence=sentence)
 
-    spans_creator()
+    spans_extractor()
 
     assert sentence.spans == Spans(
         collection=[

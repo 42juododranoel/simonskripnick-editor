@@ -1,6 +1,8 @@
 from enum import StrEnum
 
-import attrs
+from pydantic import BaseModel
+
+from editor.apps.analyzer.entities.http import HttpDocument
 
 
 class SentenceLength(StrEnum):
@@ -35,8 +37,7 @@ class SpanSubcategory(StrEnum):
     WHITESPACE = "whitespace"
 
 
-@attrs.define
-class Context:
+class Context(BaseModel):
     """A context represents some important info on user-provided text."""
 
     paragraph_count: int = 0
@@ -46,8 +47,7 @@ class Context:
     length_centroids: dict[SentenceLength, int] = {}
 
 
-@attrs.define
-class Span:
+class Span(BaseModel):
     """A span is a word or a punctuation mark."""
 
     content: str
@@ -57,16 +57,14 @@ class Span:
     fatigue: int = 0
 
 
-@attrs.define
-class Spans:
+class Spans(BaseModel):
     """Use span collection when working with multiple spans."""
 
     collection: list[Span] = []
     count: int = 0
 
 
-@attrs.define
-class Sentence:
+class Sentence(BaseModel):
     """A sentence is a collection of spans."""
 
     content: str
@@ -79,16 +77,14 @@ class Sentence:
     fatigue: int = 0
 
 
-@attrs.define
-class Sentences:
+class Sentences(BaseModel):
     """Use sentence collection when working with multiple sentences."""
 
     collection: list[Sentence | Span] = []
     count: int = 0
 
 
-@attrs.define
-class Paragraph:
+class Paragraph(BaseModel):
     """A paragraph is a collection of sentences."""
 
     content: str
@@ -97,19 +93,17 @@ class Paragraph:
     category: str = "paragraph"
 
 
-@attrs.define
-class Paragraphs:
+class Paragraphs(BaseModel):
     """Use paragraph collection when working with multiple paragraphs."""
 
     collection: list[Paragraph] = []
     count: int = 0
 
 
-@attrs.define
-class Text:
-    """A text is a collection of paragraphs."""
+class Tree(BaseModel):
+    """A tree is a collection of paragraphs."""
 
-    content: str
+    document: HttpDocument
     context: Context
     paragraphs: Paragraphs
 

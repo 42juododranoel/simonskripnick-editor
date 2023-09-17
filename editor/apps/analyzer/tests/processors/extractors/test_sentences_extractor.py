@@ -6,13 +6,13 @@ from editor.apps.analyzer.entities import (
     Spans,
     SpanSubcategory,
 )
-from editor.apps.analyzer.processors import SentencesCreator
+from editor.apps.analyzer.processors import SentencesExtractor
 
 
-def test_sentences_creator(paragraph: Paragraph):
-    sentences_creator = SentencesCreator(paragraph=paragraph)
+def test_sentences_extractor(paragraph: Paragraph):
+    sentences_extractor = SentencesExtractor(paragraph=paragraph)
 
-    sentences_creator()
+    sentences_extractor()
 
     assert paragraph.sentences == Sentences(
         collection=[

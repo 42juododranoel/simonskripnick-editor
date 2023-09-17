@@ -4,8 +4,8 @@ from editor.apps.analyzer.entities import Context, Sentence, Span, SpanSubcatego
 from editor.base.processors import BaseProcessor
 
 
-class SpansCreator(BaseProcessor):
-    """Create a span collection for a given sentence."""
+class SpansExtractor(BaseProcessor):
+    """Extract a span collection from a given sentence`s content."""
 
     def __init__(self, sentence: Sentence, context: Context | None = None) -> None:
         self.sentence = sentence

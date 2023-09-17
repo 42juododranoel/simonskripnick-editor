@@ -1,26 +1,16 @@
-import attrs
 from fastapi import APIRouter
-from pydantic import BaseModel
 
-from editor.apps.analyzer.processors import TextAnalyzer, TextCreator
+from editor.apps.analyzer.entities import HttpDocument
+from editor.apps.analyzer.processors import PipelineRunner
 
 router = APIRouter()
 
 
-class AnalyzeTextPayload(BaseModel):
-    """User sends this payload when wants their text analyzed."""
+@router.post("/analyze-document")
+async def analyze_document(document: HttpDocument) -> dict:
+    """Analyze document fatigue and length."""
 
-    content: str
+    pipeline_runner = PipelineRunner(document=document)
+    updated_document = pipeline_runner()
 
-
-@router.post("/analyze-content")
-async def analyze_content(payload: AnalyzeTextPayload) -> dict:
-    """Return analyze content ant return it as nested data structure."""
-
-    text_creator = TextCreator(content=payload.content)
-    text = text_creator()
-
-    text_analyzer = TextAnalyzer(text=text)
-    text_analyzer()
-
-    return attrs.asdict(text)
+    return updated_document.dict()

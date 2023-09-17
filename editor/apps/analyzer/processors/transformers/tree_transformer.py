@@ -2,8 +2,10 @@ from math import ceil
 
 import kmeans1d
 
-from editor.apps.analyzer.entities import Sentence, SentenceLength, Text
-from editor.apps.analyzer.processors.spans_analyzer import SpansAnalyzer
+from editor.apps.analyzer.entities import Sentence, SentenceLength, Tree
+from editor.apps.analyzer.processors.transformers.spans_transformer import (
+    SpansTransformer,
+)
 from editor.base.processors import BaseProcessor
 
 CENTROID_LENGTHS = {
@@ -13,16 +15,16 @@ CENTROID_LENGTHS = {
 }
 
 
-class TextAnalyzer(BaseProcessor):
-    """Analyze a text."""
+class TreeTransformer(BaseProcessor):
+    """Analyze a tree."""
 
-    def __init__(self, text: Text) -> None:
-        self.text = text
-        self.context = self.text.context
+    def __init__(self, tree: Tree) -> None:
+        self.tree = tree
+        self.context = self.tree.context
         self.lengths = {}
         self.longest_sentence_length = 0
 
-    def run(self) -> Text:
+    def run(self) -> Tree:
         self.analyze_length()
         self.analyze_paragraphs()
 
@@ -42,7 +44,7 @@ class TextAnalyzer(BaseProcessor):
         }
 
     def analyze_paragraphs(self) -> None:
-        for paragraph in self.text.paragraphs.collection:
+        for paragraph in self.tree.paragraphs.collection:
             previous_sentence_length = ""
 
             sentences = filter(
@@ -62,10 +64,10 @@ class TextAnalyzer(BaseProcessor):
 
     def analyze_spans(self, sentence: Sentence) -> None:
         sentence_centroid = self.context.length_centroids[sentence.length]
-        spans_analyzer = SpansAnalyzer(
+        spans_transformer = SpansTransformer(
             sentence.spans,
             sentence.length,
             sentence_centroid,
             sentence.length_repeat_count,
         )
-        spans_analyzer()
+        spans_transformer()

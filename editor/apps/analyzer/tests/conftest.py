@@ -2,24 +2,43 @@ import pytest
 
 from editor.apps.analyzer.entities import (
     Context,
+    HttpDocument,
+    HttpParagraph,
+    HttpText,
     Paragraph,
     Paragraphs,
     Sentence,
     Sentences,
     Spans,
-    Text,
+    Tree,
 )
 
 
 @pytest.fixture
-def content() -> str:
-    return "What are you doing? Move it!\r\nThe horn calls — we shall answer."
+def document() -> HttpDocument:
+    return HttpDocument(
+        type="doc",
+        content=[
+            HttpParagraph(
+                type="paragraph",
+                content=[
+                    HttpText(type="text", text="What are you doing? Move it!"),
+                ],
+            ),
+            HttpParagraph(
+                type="paragraph",
+                content=[
+                    HttpText(type="text", text="The horn calls — we shall answer."),
+                ],
+            ),
+        ],
+    )
 
 
 @pytest.fixture
-def text(content: str) -> Text:
-    return Text(
-        content=content,
+def tree(document: HttpDocument) -> Tree:
+    return Tree(
+        document=document,
         paragraphs=Paragraphs(),
         context=Context(sentence_lengths=[1, 2, 3]),
     )
