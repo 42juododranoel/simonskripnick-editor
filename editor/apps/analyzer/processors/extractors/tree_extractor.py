@@ -10,7 +10,7 @@ from editor.base.processors import BaseProcessor
 
 
 class TreeExtractor(BaseProcessor):
-    """Create a text from raw string input."""
+    """Create a tree from a document."""
 
     def __init__(self, document: str) -> None:
         self.document = document
