@@ -1,6 +1,8 @@
 from editor.apps.analyzer.entities import (
     Context,
     HttpDocument,
+    HttpParagraph,
+    HttpText,
     Paragraph,
     Paragraphs,
     Sentence,
@@ -101,7 +103,21 @@ def test_tree_transformer(document: HttpDocument):
     tree_transformer()
 
     assert tree == Tree(
-        document=document,
+        document=HttpDocument(
+            type="doc",
+            content=[
+                HttpParagraph(
+                    type="paragraph",
+                    content=[HttpText(type="text", text="What are you doing? Move it!", marks=[])],
+                ),
+                HttpParagraph(
+                    type="paragraph",
+                    content=[
+                        HttpText(type="text", text="The horn calls — we shall answer.", marks=[])
+                    ],
+                ),
+            ],
+        ),
         context=Context(
             paragraph_count=2,
             sentence_count=3,
@@ -176,7 +192,7 @@ def test_tree_transformer(document: HttpDocument):
                                 ),
                                 category="sentence",
                                 length=SentenceLength.MEDIUM,
-                                length_percentage=8,
+                                length_percentage=7,
                                 length_repeat_count=0,
                                 fatigue=0,
                             ),
@@ -219,7 +235,7 @@ def test_tree_transformer(document: HttpDocument):
                                 ),
                                 category="sentence",
                                 length=SentenceLength.SHORT,
-                                length_percentage=5,
+                                length_percentage=4,
                                 length_repeat_count=0,
                                 fatigue=0,
                             ),
@@ -325,10 +341,10 @@ def test_tree_transformer(document: HttpDocument):
                                 ),
                                 category="sentence",
                                 length=SentenceLength.LONG,
-                                length_percentage=12,
+                                length_percentage=10,
                                 length_repeat_count=0,
                                 fatigue=0,
-                            ),
+                            )
                         ],
                         count=1,
                     ),

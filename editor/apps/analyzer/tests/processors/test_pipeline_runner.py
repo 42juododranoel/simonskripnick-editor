@@ -43,7 +43,7 @@ def test_pipeline_runner():
                         text="What",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=10)),
                         ],
                     ),
                     HttpText(
@@ -51,7 +51,7 @@ def test_pipeline_runner():
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=10)),
                         ],
                     ),
                     HttpText(
@@ -59,7 +59,7 @@ def test_pipeline_runner():
                         text="is",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=10)),
                         ],
                     ),
                     HttpText(
@@ -67,7 +67,7 @@ def test_pipeline_runner():
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=10)),
                         ],
                     ),
                     HttpText(
@@ -75,7 +75,7 @@ def test_pipeline_runner():
                         text="it",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=10)),
                         ],
                     ),
                     HttpText(
@@ -83,7 +83,7 @@ def test_pipeline_runner():
                         text="?",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=10)),
                         ],
                     ),
                     HttpText(type="text", text=" ", marks=[]),
@@ -92,7 +92,7 @@ def test_pipeline_runner():
                         text="Move",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=9)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
                         ],
                     ),
                     HttpText(
@@ -100,7 +100,7 @@ def test_pipeline_runner():
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=9)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
                         ],
                     ),
                     HttpText(
@@ -108,7 +108,7 @@ def test_pipeline_runner():
                         text="it",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=9)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
                         ],
                     ),
                     HttpText(
@@ -116,7 +116,7 @@ def test_pipeline_runner():
                         text="!",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=9)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
                         ],
                     ),
                     HttpText(type="text", text=" ", marks=[]),
@@ -125,7 +125,7 @@ def test_pipeline_runner():
                         text="Good",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=6)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=5)),
                         ],
                     ),
                     HttpText(
@@ -133,10 +133,10 @@ def test_pipeline_runner():
                         text=".",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=6)),
+                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=5)),
                         ],
                     ),
                 ],
-            ),
+            )
         ],
     )

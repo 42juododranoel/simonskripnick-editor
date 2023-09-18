@@ -41,7 +41,7 @@ class DocumentLoader(BaseProcessor):
         if sentence:
             fatigue_mark = HttpMark(
                 type="fatigue",
-                attrs=HttpMarkAttrs(value=sentence.fatigue),
+                attrs=HttpMarkAttrs(value=span.fatigue),
             )
             marks.append(fatigue_mark)
             length_mark = HttpMark(

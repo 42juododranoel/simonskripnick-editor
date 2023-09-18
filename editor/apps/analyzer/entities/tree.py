@@ -17,8 +17,8 @@ class SentenceLength(StrEnum):
     def centroid_fatigue(self) -> int:
         return {
             self.SHORT: 2,
-            self.MEDIUM: 4,
-            self.LONG: 4,
+            self.MEDIUM: 3,
+            self.LONG: 3,
         }[self.value]
 
     @property

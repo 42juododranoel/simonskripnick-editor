@@ -38,7 +38,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": "What",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 12}},
+                            {"type": "length", "attrs": {"value": 10}},
                         ],
                     },
                     {
@@ -46,7 +46,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": " ",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 12}},
+                            {"type": "length", "attrs": {"value": 10}},
                         ],
                     },
                     {
@@ -54,7 +54,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": "is",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 12}},
+                            {"type": "length", "attrs": {"value": 10}},
                         ],
                     },
                     {
@@ -62,7 +62,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": " ",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 12}},
+                            {"type": "length", "attrs": {"value": 10}},
                         ],
                     },
                     {
@@ -70,7 +70,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": "it",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 12}},
+                            {"type": "length", "attrs": {"value": 10}},
                         ],
                     },
                     {
@@ -78,7 +78,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": "?",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 12}},
+                            {"type": "length", "attrs": {"value": 10}},
                         ],
                     },
                     {"type": "text", "text": " ", "marks": []},
@@ -87,7 +87,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": "Move",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 9}},
+                            {"type": "length", "attrs": {"value": 8}},
                         ],
                     },
                     {
@@ -95,7 +95,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": " ",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 9}},
+                            {"type": "length", "attrs": {"value": 8}},
                         ],
                     },
                     {
@@ -103,7 +103,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": "it",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 9}},
+                            {"type": "length", "attrs": {"value": 8}},
                         ],
                     },
                     {
@@ -111,7 +111,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": "!",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 9}},
+                            {"type": "length", "attrs": {"value": 8}},
                         ],
                     },
                     {"type": "text", "text": " ", "marks": []},
@@ -120,7 +120,7 @@ async def test_analyze_document(client: AsyncClient):
                         "text": "Good",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 6}},
+                            {"type": "length", "attrs": {"value": 5}},
                         ],
                     },
                     {
@@ -128,10 +128,10 @@ async def test_analyze_document(client: AsyncClient):
                         "text": ".",
                         "marks": [
                             {"type": "fatigue", "attrs": {"value": 0}},
-                            {"type": "length", "attrs": {"value": 6}},
+                            {"type": "length", "attrs": {"value": 5}},
                         ],
                     },
                 ],
-            },
+            }
         ],
     }
