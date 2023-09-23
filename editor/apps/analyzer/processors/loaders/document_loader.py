@@ -46,7 +46,7 @@ class DocumentLoader(BaseProcessor):
             marks.append(fatigue_mark)
             length_mark = HttpMark(
                 type="length",
-                attrs=HttpMarkAttrs(value=sentence.length_percentage),
+                attrs=HttpMarkAttrs(value=sentence.length),
             )
             marks.append(length_mark)
 

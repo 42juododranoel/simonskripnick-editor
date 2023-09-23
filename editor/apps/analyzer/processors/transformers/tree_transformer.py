@@ -53,9 +53,6 @@ class TreeTransformer(BaseProcessor):
             )
             for sentence in sentences:
                 sentence.length = self.lengths[sentence.spans.count]
-                sentence.length_percentage = ceil(
-                    (sentence.spans.count / self.longest_sentence_length) * 10,
-                )
                 if sentence.length == previous_sentence_length:
                     sentence.length_repeat_count += 1
                 previous_sentence_length = sentence.length

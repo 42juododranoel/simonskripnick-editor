@@ -24,7 +24,7 @@ class SentenceLength(StrEnum):
     @property
     def repetition_fatigue(self) -> int:
         return {
-            self.SHORT: 4,
+            self.SHORT: 6,
             self.MEDIUM: 8,
             self.LONG: 12,
         }[self.value]
@@ -72,7 +72,6 @@ class Sentence(BaseModel):
 
     category: str = "sentence"
     length: SentenceLength = SentenceLength.UNKNOWN
-    length_percentage: int = 0
     length_repeat_count: int = 0
     fatigue: int = 0
 

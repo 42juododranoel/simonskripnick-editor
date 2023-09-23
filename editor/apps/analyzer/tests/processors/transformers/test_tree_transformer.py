@@ -113,7 +113,7 @@ def test_tree_transformer(document: HttpDocument):
                 HttpParagraph(
                     type="paragraph",
                     content=[
-                        HttpText(type="text", text="The horn calls — we shall answer.", marks=[])
+                        HttpText(type="text", text="The horn calls — we shall answer.", marks=[]),
                     ],
                 ),
             ],
@@ -344,7 +344,7 @@ def test_tree_transformer(document: HttpDocument):
                                 length_percentage=10,
                                 length_repeat_count=0,
                                 fatigue=0,
-                            )
+                            ),
                         ],
                         count=1,
                     ),

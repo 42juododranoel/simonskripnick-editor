@@ -11,9 +11,9 @@ class HttpMarkType(StrEnum):
 
 
 class HttpMarkAttrs(BaseModel):
-    """Mark attributes store numeric value for mark."""
+    """Mark attributes store numeric or char value for mark."""
 
-    value: int
+    value: int | str
 
 
 class HttpMark(BaseModel):

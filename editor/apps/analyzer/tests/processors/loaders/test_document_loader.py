@@ -279,7 +279,10 @@ def test_document_loader(tree: Tree):
                         text="What",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.MEDIUM),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -287,7 +290,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.MEDIUM),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -295,7 +301,10 @@ def test_document_loader(tree: Tree):
                         text="are",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.MEDIUM),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -303,7 +312,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.MEDIUM),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -311,7 +323,10 @@ def test_document_loader(tree: Tree):
                         text="you",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.MEDIUM),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -319,7 +334,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.MEDIUM),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -327,7 +345,10 @@ def test_document_loader(tree: Tree):
                         text="doing",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.MEDIUM),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -335,7 +356,10 @@ def test_document_loader(tree: Tree):
                         text="?",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=8)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.MEDIUM),
+                            ),
                         ],
                     ),
                     HttpText(type="text", text=" ", marks=[]),
@@ -344,7 +368,10 @@ def test_document_loader(tree: Tree):
                         text="Move",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=5)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.SHORT),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -352,7 +379,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=5)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.SHORT),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -360,7 +390,10 @@ def test_document_loader(tree: Tree):
                         text="it",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=5)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.SHORT),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -368,7 +401,10 @@ def test_document_loader(tree: Tree):
                         text="!",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=5)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.SHORT),
+                            ),
                         ],
                     ),
                 ],
@@ -381,7 +417,10 @@ def test_document_loader(tree: Tree):
                         text="The",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -389,7 +428,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -397,7 +439,10 @@ def test_document_loader(tree: Tree):
                         text="horn",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -405,7 +450,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -413,7 +461,10 @@ def test_document_loader(tree: Tree):
                         text="calls",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -421,7 +472,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -429,7 +483,10 @@ def test_document_loader(tree: Tree):
                         text="—",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -437,7 +494,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -445,7 +505,10 @@ def test_document_loader(tree: Tree):
                         text="we",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -453,7 +516,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -461,7 +527,10 @@ def test_document_loader(tree: Tree):
                         text="shall",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -469,7 +538,10 @@ def test_document_loader(tree: Tree):
                         text=" ",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -477,7 +549,10 @@ def test_document_loader(tree: Tree):
                         text="answer",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                     HttpText(
@@ -485,7 +560,10 @@ def test_document_loader(tree: Tree):
                         text=".",
                         marks=[
                             HttpMark(type=HttpMarkType.FATIGUE, attrs=HttpMarkAttrs(value=0)),
-                            HttpMark(type=HttpMarkType.LENGTH, attrs=HttpMarkAttrs(value=12)),
+                            HttpMark(
+                                type=HttpMarkType.LENGTH,
+                                attrs=HttpMarkAttrs(value=SentenceLength.LONG),
+                            ),
                         ],
                     ),
                 ],

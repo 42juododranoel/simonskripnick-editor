@@ -54,42 +54,42 @@ def test_spans_transformer():
             Span(
                 subcategory=SpanSubcategory.WORD,
                 content="What",
-                fatigue=8,  # from repeated_sentence_length_count
+                fatigue=12,  # from repeated_sentence_length_count
             ),
             Span(
                 subcategory=SpanSubcategory.WHITESPACE,
                 content=" ",
-                fatigue=8,
+                fatigue=12,
             ),
             Span(
                 subcategory=SpanSubcategory.WORD,  # centroid
                 content="are",
-                fatigue=16,
+                fatigue=24,
             ),
             Span(
                 subcategory=SpanSubcategory.WHITESPACE,
                 content=" ",
-                fatigue=16,
+                fatigue=24,
             ),
             Span(
                 subcategory=SpanSubcategory.WORD,
                 content="you",
-                fatigue=18,
+                fatigue=26,
             ),
             Span(
                 subcategory=SpanSubcategory.WHITESPACE,
                 content=" ",
-                fatigue=18,
+                fatigue=26,
             ),
             Span(
                 subcategory=SpanSubcategory.WORD,
                 content="doing",
-                fatigue=20,
+                fatigue=28,
             ),
             Span(
                 subcategory=SpanSubcategory.WORD,
                 content="?",
-                fatigue=22,
+                fatigue=30,
             ),
         ],
         count=5,
