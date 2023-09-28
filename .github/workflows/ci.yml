@@ -9,8 +9,8 @@ env:
   IMAGE_NAME: 42juododranoel/simonskripnick-editor
 
 jobs:
-  codestyle:
-    name: Codestyle (black+isort)
+  lint:
+    name: Lint
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     runs-on: ubuntu-latest
 
@@ -39,12 +39,16 @@ jobs:
           pip install poetry poethepoet
           poetry install -n --no-root
 
-      - name: Check code formatting with black
-        run: poe black --diff --check
+      - name: Install Taskfile
+        run: |
+          sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 
-  mypy:
-    name: mypy
-    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
+      - name: Run linting
+        run: |
+          task format && task lint
+
+  test:
+    name: Test
     runs-on: ubuntu-latest
 
     steps:
@@ -72,97 +76,16 @@ jobs:
           pip install poetry poethepoet
           poetry install -n --no-root
 
-      - name: Check typing with mypy
-        run: poe mypy
-
-  linter:
-    name: Linter (flake8)
-    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-
-      - name: Set up Python ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Cache Virtual Environment
-        uses: actions/cache@v3
-        with:
-          path: |
-            .venv
-            ~/.cache/pip
-            ~/.cache/pypoetry
-          key: ${{ runner.os }}-venv-${{ hashFiles('poetry.lock') }}
-
-      - name: Setup poetry
+      - name: Install Taskfile
         run: |
-          pip install poetry poethepoet
-          poetry install -n --no-root
+          sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
 
-      - name: Check code style with wemake-python-styleguide
-        run: poe flake8
-
-#     - name: Lint with wemake-python-styleguide
-#       uses: wemake-services/wemake-python-styleguide@0.15.3
-#       with:
-#         reporter: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository && 'github-pr-review' || 'terminal' }}
-#       env:
-#         GITHUB_TOKEN: ${{ secrets.github_token }}
-
-  tests:
-    name: Tests (pytest+coverage)
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-
-      - name: Set up Python ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ env.PYTHON_VERSION }}
-
-      - name: Cache Virtual Environment
-        uses: actions/cache@v3
-        with:
-          path: |
-            .venv
-            ~/.cache/pip
-            ~/.cache/pypoetry
-          key: ${{ runner.os }}-venv-${{ hashFiles('poetry.lock') }}
-
-      - name: Setup poetry
+      - name: Run testing
         run: |
-          pip install poetry poethepoet
-          poetry install -n --no-root
+          task test
 
-      - name: Run unit tests with coverage
-        run: poe coverage --xml --no-check --no-clean
-
-      - name: Send coverage report to codeclimate
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        if: ${{ env.CC_TEST_REPORTER_ID != null }}
-        run: |
-          set -ex
-
-          wget -O reporter https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
-          chmod +x reporter
-          ./reporter after-build
-
-      - name: Check coverage
-        run: poetry run coverage report
-
-  docker_build:
-    name: Docker Build
+  build:
+    name: Build
     if: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository }}
     runs-on: ubuntu-latest
     strategy:
@@ -195,7 +118,7 @@ jobs:
           key: ${{ runner.os }}-buildx-${{ matrix.platform }}-${{ github.sha }}
           restore-keys: ${{ runner.os }}-buildx-${{ matrix.platform }}-
 
-      - name: Create Tag
+      - name: Create a tag
         id: tag
         run: echo ::set-output "name=tag::$(echo ${{ matrix.platform }} | tr / -)"
 
@@ -234,10 +157,10 @@ jobs:
           path: ${{ steps.archive.outputs.name }}
           retention-days: 1
 
-  docker_push:
-    name: Docker Push
+  push:
+    name: Push
     if: ${{ github.event_name != 'pull_request' && github.actor != 'dependabot[bot]' && github.ref != 'refs/heads/template' }}
-    needs: [ codestyle, mypy, linter, tests, docker_build ]
+    needs: [ lint, test, build ]
     concurrency: docker
     runs-on: ubuntu-latest
 
@@ -299,7 +222,7 @@ jobs:
 # docker_deploy:
 #   name: Docker Deploy
 #   if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/develop' }}
-#   needs: [ docker_push ]
+#   needs: [ push ]
 #   environment: server-test
 #   runs-on: ubuntu-latest
 #
