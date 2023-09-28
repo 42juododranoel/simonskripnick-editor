@@ -39,21 +39,9 @@ jobs:
           pip install poetry poethepoet
           poetry install -n --no-root
 
-      - name: What is PATH?
-        run: |
-          echo $PATH
-
-      - name: Whereis isort?
-        run: |
-          whereis isort
-
-      - name: Install Taskfile
-        run: |
-          sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
-
       - name: Run linting
         run: |
-          ./bin/task format && ./bin/task lint
+          poe format && poe lint
 
   test:
     name: Test
@@ -84,13 +72,9 @@ jobs:
           pip install poetry poethepoet
           poetry install -n --no-root
 
-      - name: Install Taskfile
-        run: |
-          sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
-
       - name: Run testing
         run: |
-          ./bin/task test
+          poe test
 
   build:
     name: Build
@@ -99,11 +83,7 @@ jobs:
     strategy:
       matrix:
         platform:
-          - "linux/amd64"
-#         - "linux/arm/v7"
-#         - "linux/arm64/v8"
-#         - "linux/s390x"
-#         - "linux/ppc64le"
+          - "linux/amd64"  # "linux/arm/v7" "linux/arm64/v8" "linux/s390x" "linux/ppc64le"
 
     steps:
       - name: Checkout

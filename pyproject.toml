@@ -25,6 +25,15 @@ httpx = "^0.24.1"
 ipdb = "^0.13.13"
 pytest-mock = "^3.11.1"
 
+[tool.poe.tasks]
+install = "poetry install"
+isort = "isort ."
+black = "black ."
+format = ["isort", "black"]
+lint = "ruff check . --fix"
+test = "pytest -s -vv"
+run = "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+
 [tool.black]
 line-length = 100
 
