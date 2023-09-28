@@ -12,6 +12,8 @@ fastapi = "^0.101.0"
 uvicorn = "^0.23.2"
 nltk = "^3.8.1"
 kmeans1d = "^0.3.1"
+textblob = "^0.17.1"
+pyenchant = "^3.2.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"
