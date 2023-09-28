@@ -1,7 +1,6 @@
 from fastapi import APIRouter, FastAPI
 
 from editor.apps.analyzer.router import router as analyzer_router
-from editor.apps.spellchecker.router import router as spellchecker_router
 
 
 def get_router() -> APIRouter:
@@ -9,7 +8,6 @@ def get_router() -> APIRouter:
 
     router = APIRouter()
     router.include_router(router=analyzer_router, prefix="/analyzer")
-    router.include_router(router=spellchecker_router, prefix="/spellchecker")
     return router
 
 

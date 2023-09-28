@@ -15,7 +15,7 @@ def test_spans_transformer():
             ),
             Span(
                 subcategory=SpanSubcategory.WORD,
-                content="are",
+                content="arw",
             ),
             Span(
                 subcategory=SpanSubcategory.WHITESPACE,
@@ -54,7 +54,7 @@ def test_spans_transformer():
             Span(
                 subcategory=SpanSubcategory.WORD,
                 content="What",
-                fatigue=12,  # from repeated_sentence_length_count
+                fatigue=12,  # accumulated fatigue
             ),
             Span(
                 subcategory=SpanSubcategory.WHITESPACE,
@@ -62,9 +62,16 @@ def test_spans_transformer():
                 fatigue=12,
             ),
             Span(
-                subcategory=SpanSubcategory.WORD,  # centroid
-                content="are",
-                fatigue=24,
+                subcategory=SpanSubcategory.WORD,
+                content="arw",
+                fatigue=24,  # centroid fatigue
+                spellcheck_candidates=[
+                    ("are", 0.9065934065934066),
+                    ("arm", 0.06543456543456544),
+                    ("raw", 0.014485514485514486),
+                    ("art", 0.011738261738261738),
+                    ("arc", 0.0012487512487512488),
+                ],
             ),
             Span(
                 subcategory=SpanSubcategory.WHITESPACE,

@@ -55,6 +55,7 @@ class Span(BaseModel):
 
     category: str = "span"
     fatigue: int = 0
+    spellcheck_candidates: list[tuple[str, float]] = []
 
 
 class Spans(BaseModel):

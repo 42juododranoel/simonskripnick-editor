@@ -13,11 +13,7 @@ async def test_analyze_document(client: AsyncClient):
                     "content": [
                         {
                             "type": "text",
-                            "text": "What is it? Move it! Good.",
-                            "marks": [
-                                {"type": "length", "attrs": {"value": 0}},
-                                {"type": "fatigue", "attrs": {"value": 0}},
-                            ],
+                            "text": "What iz it? Move it! Good.",
                         },
                     ],
                 },
@@ -51,8 +47,12 @@ async def test_analyze_document(client: AsyncClient):
                     },
                     {
                         "type": "text",
-                        "text": "is",
+                        "text": "iz",
                         "marks": [
+                            {
+                                "type": "spellcheck",
+                                "attrs": {"value": ["in", "it", "is", "i", "if"]},
+                            },
                             {"type": "fatigue", "attrs": {"value": 0}},
                             {"type": "length", "attrs": {"value": "long"}},
                         ],

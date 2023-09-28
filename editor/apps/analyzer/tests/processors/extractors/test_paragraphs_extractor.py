@@ -10,7 +10,7 @@ def test_paragraphs_extractor(tree: Tree):
     assert tree.paragraphs == Paragraphs(
         collection=[
             Paragraph(
-                content="What are you doing? Move it!",
+                content="What arw you doing? Move it!",
                 sentences=Sentences(),
             ),
             Paragraph(

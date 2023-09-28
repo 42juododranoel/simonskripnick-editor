@@ -22,7 +22,7 @@ def document() -> HttpDocument:
             HttpParagraph(
                 type="paragraph",
                 content=[
-                    HttpText(type="text", text="What are you doing? Move it!"),
+                    HttpText(type="text", text="What arw you doing? Move it!"),
                 ],
             ),
             HttpParagraph(
@@ -47,7 +47,7 @@ def tree(document: HttpDocument) -> Tree:
 @pytest.fixture
 def paragraph() -> Paragraph:
     return Paragraph(
-        content="What are you doing? Move it!",
+        content="What arw you doing? Move it!",
         sentences=Sentences(),
     )
 
@@ -55,6 +55,6 @@ def paragraph() -> Paragraph:
 @pytest.fixture
 def sentence() -> Sentence:
     return Sentence(
-        content="What are you doing?",
+        content="What arw you doing?",
         spans=Spans(),
     )

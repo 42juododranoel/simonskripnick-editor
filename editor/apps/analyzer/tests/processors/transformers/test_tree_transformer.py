@@ -29,18 +29,18 @@ def test_tree_transformer(document: HttpDocument):
             count=2,
             collection=[
                 Paragraph(
-                    content="What are you doing? Move it!",
+                    content="What arw you doing? Move it!",
                     sentences=Sentences(
                         count=2,
                         collection=[
                             Sentence(
-                                content="What are you doing?",
+                                content="What arw you doing?",
                                 spans=Spans(
                                     count=5,
                                     collection=[
                                         Span(subcategory=SpanSubcategory.WORD, content="What"),
                                         Span(subcategory=SpanSubcategory.WHITESPACE, content=" "),
-                                        Span(subcategory=SpanSubcategory.WORD, content="are"),
+                                        Span(subcategory=SpanSubcategory.WORD, content="arw"),
                                         Span(subcategory=SpanSubcategory.WHITESPACE, content=" "),
                                         Span(subcategory=SpanSubcategory.WORD, content="you"),
                                         Span(subcategory=SpanSubcategory.WHITESPACE, content=" "),
@@ -108,7 +108,7 @@ def test_tree_transformer(document: HttpDocument):
             content=[
                 HttpParagraph(
                     type="paragraph",
-                    content=[HttpText(type="text", text="What are you doing? Move it!", marks=[])],
+                    content=[HttpText(type="text", text="What arw you doing? Move it!", marks=[])],
                 ),
                 HttpParagraph(
                     type="paragraph",
@@ -132,11 +132,11 @@ def test_tree_transformer(document: HttpDocument):
         paragraphs=Paragraphs(
             collection=[
                 Paragraph(
-                    content="What are you doing? Move it!",
+                    content="What arw you doing? Move it!",
                     sentences=Sentences(
                         collection=[
                             Sentence(
-                                content="What are you doing?",
+                                content="What arw you doing?",
                                 spans=Spans(
                                     collection=[
                                         Span(
@@ -152,10 +152,17 @@ def test_tree_transformer(document: HttpDocument):
                                             fatigue=0,
                                         ),
                                         Span(
-                                            content="are",
+                                            content="arw",
                                             subcategory=SpanSubcategory.WORD,
                                             category="span",
                                             fatigue=0,
+                                            spellcheck_candidates=[
+                                                ("are", 0.9065934065934066),
+                                                ("arm", 0.06543456543456544),
+                                                ("raw", 0.014485514485514486),
+                                                ("art", 0.011738261738261738),
+                                                ("arc", 0.0012487512487512488),
+                                            ],
                                         ),
                                         Span(
                                             content=" ",

@@ -38,6 +38,18 @@ class DocumentLoader(BaseProcessor):
 
     def create_text_node(self, span: Span, sentence: Sentence | None = None) -> HttpText:
         marks = []
+
+        # Spellcheck
+        if span.spellcheck_candidates:
+            spellcheck_mark = HttpMark(
+                type="spellcheck",
+                attrs=HttpMarkAttrs(
+                    value=[candidate[0] for candidate in span.spellcheck_candidates],
+                ),
+            )
+            marks.append(spellcheck_mark)
+
+        # Fatigue
         if sentence:
             fatigue_mark = HttpMark(
                 type="fatigue",

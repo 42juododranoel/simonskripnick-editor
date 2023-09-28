@@ -17,7 +17,7 @@ def test_sentences_extractor(paragraph: Paragraph):
     assert paragraph.sentences == Sentences(
         collection=[
             Sentence(
-                content="What are you doing?",
+                content="What arw you doing?",
                 spans=Spans(),
             ),
             Span(

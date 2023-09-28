@@ -19,7 +19,7 @@ def test_spans_extractor(sentence: Sentence):
             ),
             Span(
                 subcategory=SpanSubcategory.WORD,
-                content="are",
+                content="arw",
             ),
             Span(
                 subcategory=SpanSubcategory.WHITESPACE,

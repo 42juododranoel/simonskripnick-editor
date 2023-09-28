@@ -8,12 +8,13 @@ class HttpMarkType(StrEnum):
 
     LENGTH = "length"
     FATIGUE = "fatigue"
+    SPELLCHECK = "spellcheck"
 
 
 class HttpMarkAttrs(BaseModel):
-    """Mark attributes store numeric or char value for mark."""
+    """Mark attributes store value for mark."""
 
-    value: int | str
+    value: int | str | list[str]
 
 
 class HttpMark(BaseModel):

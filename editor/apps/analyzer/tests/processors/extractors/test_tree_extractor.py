@@ -30,18 +30,18 @@ def test_tree_extractor(document: HttpDocument):
             count=2,
             collection=[
                 Paragraph(
-                    content="What are you doing? Move it!",
+                    content="What arw you doing? Move it!",
                     sentences=Sentences(
                         count=2,
                         collection=[
                             Sentence(
-                                content="What are you doing?",
+                                content="What arw you doing?",
                                 spans=Spans(
                                     count=5,
                                     collection=[
                                         Span(subcategory=SpanSubcategory.WORD, content="What"),
                                         Span(subcategory=SpanSubcategory.WHITESPACE, content=" "),
-                                        Span(subcategory=SpanSubcategory.WORD, content="are"),
+                                        Span(subcategory=SpanSubcategory.WORD, content="arw"),
                                         Span(subcategory=SpanSubcategory.WHITESPACE, content=" "),
                                         Span(subcategory=SpanSubcategory.WORD, content="you"),
                                         Span(subcategory=SpanSubcategory.WHITESPACE, content=" "),
