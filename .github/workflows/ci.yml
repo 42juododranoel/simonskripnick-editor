@@ -45,7 +45,7 @@ jobs:
 
       - name: Run linting
         run: |
-          .bin/task format && .bin/task lint
+          ./bin/task format && ./bin/task lint
 
   test:
     name: Test
@@ -82,7 +82,7 @@ jobs:
 
       - name: Run testing
         run: |
-          .bin/task test
+          ./bin/task test
 
   build:
     name: Build
