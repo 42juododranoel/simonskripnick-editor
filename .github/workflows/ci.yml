@@ -39,6 +39,14 @@ jobs:
           pip install poetry poethepoet
           poetry install -n --no-root
 
+      - name: What is PATH?
+        run: |
+          echo $PATH
+
+      - name: Whereis isort?
+        run: |
+          whereis isort
+
       - name: Install Taskfile
         run: |
           sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d
